@@ -1,0 +1,27 @@
+<div class="row">
+	<div class="col-9">
+		<div class="row">
+			<div class="col-4">Position: </div><div class="col-8">
+			{{sticker.position}}</div>
+		</div>
+		<div class="row">
+			<div class="col-4">Name: </div><div class="col-8"> {{sticker.name}}</div>
+		</div>
+		<div class="row">
+			<div class="col-4">Got: </div><div class="col-8"> {{sticker.got}}</div>
+		</div>
+		<div class="row">
+			<div class="col-4">To Swap: </div><div class="col-8"> {{sticker.toSwap}}</div> 
+		</div>
+	</div>
+	<div class="col-3 actions">
+		<div class="row">
+			<div class="col-12 text-center">
+				<button type="button" class="btn btn-primary" (click)="edit()">Edit</button>
+			</div>
+			<div class="col-12 text-center">
+				<button type="button" class="btn btn-danger" (click)="delete()"><span *ngIf="isDeleting">...</span><span *ngIf="!isDeleting">Delete</span></button>
+			</div>
+		</div>
+	</div>
+</div>

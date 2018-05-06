@@ -1,0 +1,18 @@
+<div class="stickers">
+	<div class="page-title row">
+		<h2 class="col-5">Stickers</h2>
+	</div>
+	<div class="stickers row">
+		<ul class="col-8">
+			<li *ngFor="let sticker of stickers" class="row sticker-display">
+				<app-sticker-display [sticker]='sticker' (deleteSticker)="deleteSticker($event)" (editSticker)="editSticker($event)" class="col-12 card"></app-sticker-display>
+			</li>
+		</ul>	
+		<ul class="col-4 offset-1">
+			<app-sticker-add (addSticker)="addSticker($event)" (editSticker)="editStickerSave($event)" [selectedSticker]="selectedSticker" [canAdd]='!loading'></app-sticker-add>
+			<div *ngIf="loading">
+				loading...
+			</div>
+		</ul>
+	</div>
+</div>

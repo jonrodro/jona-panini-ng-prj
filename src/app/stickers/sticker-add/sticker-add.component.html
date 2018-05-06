@@ -1,0 +1,57 @@
+<form (ngSubmit)="onSubmit(stickerForm)" #stickerForm="ngForm">
+
+	<div class="form-group">
+		<label for="position">Position</label>
+		<input type="text" 
+			class="form-control" 
+			id="position" name="position"
+			[(ngModel)]="sticker.position"  
+			#position="ngModel" 
+			required pattern="[0-9]*">
+		<div [hidden]="position.valid || position.pristine" class="alert alert-danger" *ngIf="position.errors && position.errors.required">
+			Position field is required
+		</div>
+		<div [hidden]="position.valid || position.pristine" class="alert alert-danger" *ngIf="position.errors && position.errors.pattern">
+			Position value must be numeric
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="name">Name</label>
+		<input type="text" class="form-control" id="name"
+		required
+		[(ngModel)]="sticker.name" name="name"
+		#name="ngModel">
+		<div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+			<div *ngIf="name.errors && name.errors.required">
+				Name field is required
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for ="got">Got it</label>
+		<input type="checkbox" class="form-control" id="got"
+		[(ngModel)]="sticker.got" name="got" 
+		#name="ngModel">
+	</div>
+
+	<div class="form-group">
+		<label for="toSwap">To Swap</label>
+		<input type="text" 
+			class="form-control" 
+			id="toSwap" name="toSwap"
+			[(ngModel)]="sticker.toSwap"  
+			#toSwap="ngModel" 
+			required pattern="[0-9]*">
+		<div [hidden]="toSwap.valid || toSwap.pristine" class="alert alert-danger" *ngIf="toSwap.errors && toSwap.errors.required">
+			To Swap field is required
+		</div>
+		<div [hidden]="toSwap.valid || toSwap.pristine" class="alert alert-danger" *ngIf="toSwap.errors && toSwap.errors.pattern">
+			To Swap value must be numeric
+		</div>
+	</div>
+
+	<button type="submit" class="btn btn-success" [disabled]="!stickerForm.form.valid || !canAdd"><span *ngIf="!isEditing">To Add</span><span *ngIf="isEditing">Update</span></button>
+	<button type="button" class="btn btn-danger" (click)="newSticker(); stickerForm.reset()">Revert</button>
+</form>
