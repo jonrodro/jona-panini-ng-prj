@@ -1,0 +1,18 @@
+<div class="albums">
+	<div class="page-title row">
+		<h2 class="col-5">Albums</h2>
+	</div>
+	<div class="albums row">
+		<ul class="col-8">
+			<li *ngFor="let album of albums" class="row album-display">
+				<app-album-display [album]='album' (deleteAlbum)="deleteAlbum($event)" (editAlbum)="editAlbum($event)" class="col-12 card"></app-album-display>
+			</li>
+		</ul>	
+		<ul class="col-3 offset-1">
+			<app-album-add (addAlbum)="addAlbum($event)" (editAlbum)="editAlbumSave($event)" [selectedAlbum]="selectedAlbum" [canAdd]='!loading'></app-album-add>
+			<div *ngIf="loading">
+				loading...
+			</div>
+		</ul>
+	</div>
+</div>

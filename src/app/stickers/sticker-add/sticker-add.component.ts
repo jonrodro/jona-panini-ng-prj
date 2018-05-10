@@ -13,7 +13,6 @@ export class StickerAddComponent implements OnInit, OnChanges {
 	@Input() canAdd : boolean = true;
 	@Input('selectedSticker') sticker : Sticker = new Sticker();
 	submitted = false;
-	requiredText : string = 'sticker';
 	isEditing = false;
 
 	onSubmit(stickerForm) {

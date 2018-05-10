@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
+import { AlbumsComponent } from './albums/albums.component';
 import { StickersComponent } from './stickers/stickers.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
@@ -9,6 +10,10 @@ export const ROUTES: Routes = [
     { 
         path: '',  
         component: HomeComponent
+    },
+    { 
+        path: 'albums',  
+        component: AlbumsComponent
     },
     { 
         path: 'stickers',  
