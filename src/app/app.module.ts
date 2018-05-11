@@ -31,6 +31,9 @@ import { TextContainsValidator } from './shared/text-contains.directive';
 import { GreaterThanValidator } from './shared/greater-than.directive';
 import { LessThanValidator } from './shared/less-than.directive';
 
+//pipes
+//import { UCAuthorPipe } from './pipes/TitleCase.Pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +66,7 @@ import { LessThanValidator } from './shared/less-than.directive';
     UsuariosService,
     DataService,
     AuthService
+//    UCAuthorPipe
   ],
   bootstrap: [AppComponent]
 })

@@ -64,7 +64,7 @@
 		<div [hidden]="minPosition.valid || minPosition.pristine" class="alert alert-danger" *ngIf="minPosition.errors && minPosition.errors.pattern">
 			Min Sticker Position value must be numeric
 		</div>
-		<div [hidden]="minPosition.valid || minPosition.pristine" class="alert alert-danger" *ngIf="minPosition.errors && minPosition.errors.textNotLessThan && !minPosition.errors.pattern">
+		<div [hidden]="minPosition.valid || minPosition.pristine || maxPosition.pristine" class="alert alert-danger" *ngIf="minPosition.errors && minPosition.errors.textNotLessThan && !minPosition.errors.pattern">
 			Min less than max was expected
 		</div>
 	</div>
@@ -84,11 +84,11 @@
 		<div [hidden]="maxPosition.valid || maxPosition.pristine" class="alert alert-danger" *ngIf="maxPosition.errors && maxPosition.errors.pattern">
 			Max Sticker Position value must be numeric
 		</div>
-		<div [hidden]="maxPosition.valid || maxPosition.pristine" class="alert alert-danger" *ngIf="maxPosition.errors && maxPosition.errors.textNotGreaterThan && !maxPosition.errors.pattern">
+		<div [hidden]="maxPosition.valid || maxPosition.pristine || minPosition.pristine" class="alert alert-danger" *ngIf="maxPosition.errors && maxPosition.errors.textNotGreaterThan && !maxPosition.errors.pattern">
 			Max greater than min was expected
 		</div>
 	</div>
 
 	<button type="submit" class="btn btn-success" [disabled]="!albumForm.form.valid || !canAdd"><span *ngIf="!isEditing">To Add</span><span *ngIf="isEditing">Update</span></button>
-	<button type="button" class="btn btn-danger" (click)="newAlbum(); albumForm.reset()">Revert</button>
+	<button type="button" class="btn btn-danger" (click)="albumForm.reset();newAlbum(); ">Revert</button>
 </form>
